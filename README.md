@@ -37,7 +37,7 @@ VALUES ('Admiral Greer', 'tuna', 18),
 ('Captain Borodin', 'shark', 10),
 ('Lieutenant Nguyen', 'fishy', 4),
 ('Lieutenant Ryan', 'tuna', 4);
-
+ 
 
 CREATE TABLE "secret" (
     "id" SERIAL PRIMARY KEY,
@@ -88,10 +88,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 ```
-
 Do this for the secrets route to achieve these results:
 
 - [ ] An unauthenticated user visiting `http://localhost:5000/api/secrets` should get a `403` or `forbidden` error instead of seeing the secrets.
+<!-- ################################################################## -->
+
 - [ ] A user like `Admiral Greer` with password `tuna` should still be able to visit `http://localhost:3000/#/secrets` to see all of the secrets.
 
 ### No Secrets Above Clearance Level (Authorization)
