@@ -7,9 +7,10 @@ const {
 
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-  console.log('req.user:', req.user);
+  console.log('req.user clearance level:', req.user.clearance_level);
+  let getQuery = `SELECT * FROM secret WHERE secret.secrecy_level < $1;`
   pool
-    .query('SELECT * FROM "secret";')
+    .query(getQuery, [req.user.clearance_level])
     .then((results) => res.send(results.rows))
     .catch((error) => {
       console.log('Error making SELECT for secrets:', error);
@@ -18,4 +19,4 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 module.exports = router;
- 
+   

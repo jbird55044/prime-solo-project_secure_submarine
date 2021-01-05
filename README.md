@@ -21,7 +21,7 @@ Before you get started, make sure you have the following software installed on y
 - [Nodemon](https://nodemon.io/)
 
 ### Create Database and Table
-
+ 
 Create a new database called `secure_submarine` and create a `user` table and `secret` table:
 
 ```SQL
@@ -91,7 +91,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 Do this for the secrets route to achieve these results:
 
 - [ ] An unauthenticated user visiting `http://localhost:5000/api/secrets` should get a `403` or `forbidden` error instead of seeing the secrets.
-<!-- ################################################################## -->
 
 - [ ] A user like `Admiral Greer` with password `tuna` should still be able to visit `http://localhost:3000/#/secrets` to see all of the secrets.
 
@@ -106,6 +105,7 @@ You should see the clearance level in the console log inside of secrets GET requ
 - [ ] A user like `Captain Borodin` with password `shark` should no longer be able to see any secrets above his `clearance_level` which is `10`.
 - [ ] A user like `Admiral Greer` with password `tuna` should still be able to visit `http://localhost:3000/#/secrets` to see all of the secrets.
 
+<!-- ################################################################## -->
 ## Stretch Goals
 
 ### Hashing
